@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm66qo34lghoj"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_1qyg5"]
+[ext_resource type="FontFile" uid="uid://c7wvnao3futg5" path="res://font/Kenney Blocks.ttf" id="2_j3hck"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_btrxp"]
+font = ExtResource("2_j3hck")
+font_size = 35
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+script = ExtResource("1_1qyg5")
+
+[node name="ScoreTextLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 17.0
+offset_right = 170.0
+offset_bottom = 64.0
+text = "Score:
+"
+label_settings = SubResource("LabelSettings_btrxp")
+
+[node name="ScoreValueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 17.0
+offset_right = 265.0
+offset_bottom = 70.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_btrxp")
+
+[node name="ViesTextLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 72.0
+offset_right = 170.0
+offset_bottom = 125.0
+text = "Vies:
+"
+label_settings = SubResource("LabelSettings_btrxp")
+
+[node name="ViesValueLabel" type="Label" parent="."]
+offset_left = 191.0
+offset_top = 72.0
+offset_right = 265.0
+offset_bottom = 125.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_btrxp")

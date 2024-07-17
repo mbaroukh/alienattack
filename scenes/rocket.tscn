@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bf3we675sseeh"]
+
+[ext_resource type="Script" path="res://scripts/rocket.gd" id="1_3y3qk"]
+[ext_resource type="Texture2D" uid="uid://dy4061wh4qin2" path="res://textures/rocket.png" id="1_6clyy"]
+[ext_resource type="AudioStream" uid="uid://cl8rcoyw6kxhv" path="res://audio/hit.wav" id="3_t0gvm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dnem4"]
+radius = 19.0
+height = 48.0
+
+[node name="Rocket" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_3y3qk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_6clyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dnem4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-29, -2)
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t0gvm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

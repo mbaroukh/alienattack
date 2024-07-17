@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://db22sc6kc45c8"]
+
+[ext_resource type="PackedScene" uid="uid://cqbjlrw5rikqb" path="res://scenes/player.tscn" id="1_sipu7"]
+[ext_resource type="PackedScene" uid="uid://d203c1evnruwa" path="res://scenes/enemy_spawner.tscn" id="3_e2n3o"]
+[ext_resource type="PackedScene" uid="uid://dj2i262dqntoa" path="res://scenes/sounds.tscn" id="4_jq3ex"]
+[ext_resource type="PackedScene" uid="uid://cm66qo34lghoj" path="res://scenes/ui.tscn" id="4_vw3l2"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_sipu7")]
+position = Vector2(103, 338)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("3_e2n3o")]
+
+[node name="UI" parent="." instance=ExtResource("4_vw3l2")]
+
+[node name="Sounds" parent="." instance=ExtResource("4_jq3ex")]

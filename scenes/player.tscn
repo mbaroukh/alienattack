@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqbjlrw5rikqb"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_gjsqn"]
+[ext_resource type="Texture2D" uid="uid://bh8rxfmm3b85p" path="res://textures/player_ship.png" id="1_laq8l"]
+[ext_resource type="AudioStream" uid="uid://b74r6hsm1yhp0" path="res://audio/sfx_laser2.wav" id="3_v7ukb"]
+[ext_resource type="AudioStream" uid="uid://ghwpai3tjdkj" path="res://audio/explode.wav" id="4_0uk48"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sm6ga"]
+radius = 34.0
+height = 126.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gjsqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_laq8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, -1)
+shape = SubResource("CapsuleShape2D_sm6ga")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v7ukb")
+
+[node name="explode" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_0uk48")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj2i262dqntoa"]
+
+[ext_resource type="AudioStream" uid="uid://cl8rcoyw6kxhv" path="res://audio/hit.wav" id="2_d41oh"]
+[ext_resource type="AudioStream" uid="uid://ghwpai3tjdkj" path="res://audio/explode.wav" id="3_iy5k0"]
+
+[sub_resource type="GDScript" id="GDScript_da6j7"]
+script/source = "extends Node2D
+
+
+func _ready():
+	State.lifes_changed.connect(func (v):
+		if v==0:
+			$PlayerExplode.play()
+	)
+	Events.ennemy_killed.connect(func ():
+		$EnemyHit.play()
+	)
+
+"
+
+[node name="Sounds" type="Node2D"]
+script = SubResource("GDScript_da6j7")
+
+[node name="EnemyHit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d41oh")
+
+[node name="PlayerExplode" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iy5k0")
